@@ -454,7 +454,7 @@ export class BuiltinSimulatorHost implements ISimulatorHost<BuiltinSimulatorProp
     this._iframe = iframe;
 
     this._contentWindow = iframe.contentWindow!;
-    this._contentDocument = this._contentWindow.document;
+    // this._contentDocument = this._contentWindow.document;
 
     const libraryAsset: AssetList = this.buildLibrary();
 
@@ -482,6 +482,9 @@ export class BuiltinSimulatorHost implements ISimulatorHost<BuiltinSimulatorProp
 
     // wait 准备 iframe 内容、依赖库注入
     const renderer = await createSimulator(this, iframe, vendors);
+
+    // compose-hq cms 调整位置，确保document有内容才继续
+    this._contentDocument = this._contentWindow.document;
 
     // TODO: !!! thinkof reload onloa
 

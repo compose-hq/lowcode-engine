@@ -108,12 +108,13 @@ class Content extends Component<{ host: BuiltinSimulatorHost }> {
     }
 
     const { viewName } = designer;
-
+    // compose-hq cms 使用url替代默认iframe内容
     return (
       <div className="lc-simulator-content">
         <iframe
           name={`${viewName}-SimulatorRenderer`}
           className="lc-simulator-content-frame"
+          src="/page/author.html"
           style={frameStyle}
           ref={(frame) => sim.mountContentFrame(frame)}
         />

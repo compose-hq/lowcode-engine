@@ -26,6 +26,8 @@ export function createSimulator(
   win.LCSimulatorHost = host;
   win._ = window._;
 
+  // compose-hq cms 不注入iframe，使用iframe url里面的内容
+  /*
   const styles: any = {};
   const scripts: any = {};
   AssetLevels.forEach((lv) => {
@@ -99,7 +101,7 @@ export function createSimulator(
   </body>
 </html>`);
   doc.close();
-
+  */
   return new Promise((resolve) => {
     const renderer = win.SimulatorRenderer;
     if (renderer) {
